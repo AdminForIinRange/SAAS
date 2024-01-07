@@ -1,0 +1,20 @@
+.arrow {
+    width: 120px;
+  }
+  
+  .line {
+    margin-top: 8px;
+    width: 200px;
+    background: rgb(0, 0, 0);
+    height: 4px;
+    float: left;
+  }
+  
+  .point {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 20px solid rgb(0, 0, 0);
+    float:  200px;
+  }
