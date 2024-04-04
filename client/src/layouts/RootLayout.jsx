@@ -43,10 +43,7 @@ export default function RootLayout() {
           <Navbar />
         </GridItem>
 
-        <GridItem>
-         
-         
-        </GridItem>
+        <GridItem></GridItem>
       </Grid>
 
       <Outlet />

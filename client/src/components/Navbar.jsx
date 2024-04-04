@@ -55,8 +55,6 @@ export default function Navbar() {
           >
             {isSmallScreen ? (
               <Menu>
-                
-                
                 <MenuButton as={Button} color={"black"} variant="outline">
                   <HamburgerIcon />
                 </MenuButton>

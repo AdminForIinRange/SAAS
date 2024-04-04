@@ -28,13 +28,11 @@ const theme = extendTheme({
       html: {
         height: "100%",
         width: "100%",
-    
-        
       },
       body: {
         height: "100%",
         width: "100%",
-        
+
         backgroundRepeat: "no-repeat",
       },
     },
@@ -47,5 +45,5 @@ ReactDOM.render(
       <App />
     </React.StrictMode>
   </ChakraProvider>,
-  document.getElementById("root")
+  document.getElementById("root"),
 );

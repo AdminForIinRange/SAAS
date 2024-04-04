@@ -56,48 +56,6 @@ import failB from "../../images/anob.png";
 import AB from "../../images/Screenshot 2023-12-28 204513.png";
 import Drawing from "../../images/minginab.png";
 export default function Home() {
-  const [pageTwo, setPageTwo] = useState(false);
-  const [pageThree, setPageThree] = useState(false);
-  const [pageFour, setPageFour] = useState(false);
-  const [pageFive, setPageFive] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-
-      if (scrollPosition >= 1200) {
-        setPageTwo(true);
-      } else {
-        setPageTwo(false);
-      }
-
-      if (scrollPosition >= 2000) {
-        setPageThree(true);
-      } else {
-        setPageThree(false);
-      }
-
-      if (scrollPosition >= 3500) {
-        setPageFour(true);
-      } else {
-        setPageFour(false);
-      }
-
-      if (scrollPosition >= 4600) {
-        setPageFive(true);
-      } else {
-        setPageFive(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    // Clean up the event listener on component unmount
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   const scrollToPosition = (position) => {
     window.scrollTo({
       top: position,
@@ -107,77 +65,7 @@ export default function Home() {
 
   return (
     <>
-
-    <div
-        style={{
-          position: "fixed",
-
-        
-          top: "200px",
-          left:"93.5%"
-        }}
-      >
-        <Stack pos={"absolute"} direction="row" h="500px" align={"left"}>
-          <Divider borderColor={"black"} orientation="vertical" />
-          <VStack  align={"right"} gap={"5%"} textAlign={"left"}  w={"100px"}>
-            <Button  fontSize={"15px"} onClick={() => scrollToPosition(1)}  textAlign={"left"} colorScheme="gray" variant="ghost">
-              Recognize
-            </Button>
-            {pageTwo ? (
-              <Button   fontSize={"15px"}
-                onClick={() => scrollToPosition(1575)}
-                textAlign={"left"}
-                colorScheme="gray"
-                variant="ghost"
-              >
-                Conceptualize
-              </Button>
-            ) : null}
-            {pageThree ? (
-              <Button fontSize={"15px"}
-                onClick={() => scrollToPosition(2650)}
-                textAlign={"left"}
-                colorScheme="gray"
-                variant="ghost"
-              >
-                Initialize
-              </Button>
-            ) : null}
-            {pageFour ? (
-              <Button fontSize={"15px"}
-                onClick={() => scrollToPosition(4000)}
-                textAlign={"left"}
-                colorScheme="gray"
-                variant="ghost"
-              >
-                Optimize
-              </Button>
-            ) : null}
-
-            {pageFive ? (
-              <Button fontSize={"15px"}
-                onClick={() => scrollToPosition(5100)}
-                textAlign={"left"}
-                colorScheme="gray"
-                variant="ghost"
-              >
-                Standardize
-              </Button>
-            ) : null}
-          </VStack>
-        </Stack>
-      </div>
-
-
-
-     
-      <VStack
-        m={"3%"}
-       
-        justifyContent={"left"}
-        align={"left"}
-        color={"#230F37"}
-      >
+      <VStack m={"3%"} justifyContent={"left"} align={"left"} color={"#230F37"}>
         <Text
           mb={"-45px"}
           fontSize={"30px"}
@@ -189,7 +77,16 @@ export default function Home() {
 
         <Text
           mb={"-15px"}
-          fontSize={"170px"}
+          fontSize={{
+            base: "80px",
+            xsm: "80px",
+            ssm: "90px",
+            sm: "100px",
+            md: "120px",
+            lg: "120px",
+            xl: "130px  ",
+            xxl: "150px",
+          }}
           letterSpacing={"-6px"}
           fontWeight={"bold"}
         >
@@ -241,7 +138,6 @@ export default function Home() {
           features are tailored to optimize your workflow, ensuring efficient
           task management and goal attainment
         </Text>
-        
 
         <VStack align={"left"} justify={"left"} mt={"20px"}>
           <InputGroup
@@ -291,6 +187,7 @@ export default function Home() {
           wrap={"wrap"}
         >
           <Card
+            mb={"5%"}
             transition="transform, 0.3s ease-in-out, boxShadow 1s ease-in-out"
             _hover={{
               transform: "scale(1.1)",
@@ -331,6 +228,7 @@ export default function Home() {
           </Card>
 
           <Card
+            mb={"5%"}
             transition="transform, 0.3s ease-in-out, boxShadow 1s ease-in-out"
             _hover={{
               transform: "scale(1.1)",
@@ -372,6 +270,7 @@ export default function Home() {
           </Card>
 
           <Card
+            mb={"5%"}
             transition="transform, 0.3s ease-in-out, boxShadow 1s ease-in-out"
             _hover={{
               transform: "scale(1.1)",
@@ -440,8 +339,8 @@ export default function Home() {
           a roadmap, a direction that guides your actions and decisions.
         </Text>
 
-        <VStack align={"left"} mt={"3.5%"}  >
-          <HStack gap={"5%"}  mb={"2.5%"} >
+        <VStack align={"left"} mt={"3.5%"}>
+          <HStack gap={"5%"} mb={"2.5%"}>
             <Card
               borderRadius={"10px"}
               transition="transform, 0.3s ease-in-out, boxShadow 1s ease-in-out"
@@ -723,7 +622,6 @@ export default function Home() {
               </Text>
             </CardBody>
           </Card>
-      
 
           <Card
             boxShadow={"none"}
@@ -741,13 +639,12 @@ export default function Home() {
               With
             </CardHeader>
             <CardBody
-
               bgImage={AB}
               bgSize={"80%"}
               bgPosition={"center"}
               bgRepeat={"no-repeat"}
               bgColor={"none"}
-            bgPos={"left"}
+              bgPos={"left"}
             >
               <VStack
                 fontWeight={"350"}
@@ -800,15 +697,14 @@ export default function Home() {
         </Text>
 
         <HStack justify={"center"}>
-          <Box mt={"5%"}  ml={"-50px"} >
+          <Box mt={"5%"}>
             <Image src={Drawing} />
           </Box>
         </HStack>
 
         <Text
-
-        align={"center"}
-         mt={"200px"}
+          align={"center"}
+          mt={"200px"}
           fontSize={"30px"}
           letterSpacing={"-1px"}
           fontWeight={"600"}
@@ -816,7 +712,8 @@ export default function Home() {
           Embrace relentless deteration, be an achiever.
         </Text>
 
-        <Text align={"center"}
+        <Text
+          align={"center"}
           mb={"-15px"}
           fontSize={"170px"}
           letterSpacing={"-6px"}
@@ -836,7 +733,12 @@ export default function Home() {
           </Highlight>
         </Text>
 
-        <Text align={"center"} fontSize={"50px"} letterSpacing={"-3px"} fontWeight={"bold"} >
+        <Text
+          align={"center"}
+          fontSize={"50px"}
+          letterSpacing={"-3px"}
+          fontWeight={"bold"}
+        >
           <Highlight
             query="1 Month free Trail"
             styles={{
@@ -847,22 +749,19 @@ export default function Home() {
               bg: "#C1FF72",
             }}
           >
-           1 Month free Trail
+            1 Month free Trail
           </Highlight>
-          
-        
         </Text>
         <HStack justify={"center"}>
-        <Text w={"55%"} mt={"20px"} fontSize={"20px"} whiteSpace={"wrap"} >
-        Taking advantage of our one-month free trial is a fantastic opportunity to experience the full spectrum of benefits our AI-driven tools offer. Here's a breakdown of how you can get started and maximize your productivity during this trial period
-        </Text>
-     
-
+          <Text w={"55%"} mt={"20px"} fontSize={"20px"} whiteSpace={"wrap"}>
+            Taking advantage of our one-month free trial is a fantastic
+            opportunity to experience the full spectrum of benefits our
+            AI-driven tools offer. Here's a breakdown of how you can get started
+            and maximize your productivity during this trial period
+          </Text>
         </HStack>
 
-      
-
-        <VStack align={"center"}  mt={"60px"} >
+        <VStack align={"center"} mt={"60px"}>
           <InputGroup
             w={"800px"}
             h={"60px"}
@@ -894,14 +793,7 @@ export default function Home() {
             Login
           </Button>
         </HStack>
-        <HStack mt={"200px"} justify={"center"} mb={"20px"}>
-\
-
-        </HStack>
-
-     
-       
-
+        <HStack mt={"200px"} justify={"center"} mb={"20px"}></HStack>
       </VStack>
     </>
   );
